@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Glassmorphism Weather App | สภาพอากาศสดเรียลไทม์</title>
+    <meta name="description" content="แอปพลิเคชันรายงานสภาพอากาศสดแบบ Real-time ดึงข้อมูลอุณหภูมิและความชื้นทั่วโลกด้วย Open-Meteo API พร้อมดีไซน์ Dynamic Glassmorphism">
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Weather Stylesheet -->
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+
+    <!-- Ambient Floating Clouds -->
+    <div class="weather-ambient">
+        <div class="cloud-particle" style="width: 300px; height: 300px; top: 10%; left: 5%;"></div>
+        <div class="cloud-particle" style="width: 450px; height: 450px; top: 50%; right: 5%;"></div>
+    </div>
+
+    <!-- Main Weather App Layout -->
+    <div class="app-container">
+
+        <!-- Header Bar -->
+        <header class="header-glass">
+            <div class="brand-title">
+                <i class="fa-solid fa-cloud-sun-rain brand-icon"></i>
+                <span>WeatherCast Live</span>
+            </div>
+
+            <!-- Search Box & Controls -->
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
+                <input type="text" id="city-input" class="search-input" placeholder="ค้นหาชื่อเมือง/จังหวัด (เช่น Phetchaburi, Bangkok, Tokyo)...">
+                <button class="search-btn" id="search-btn" title="ค้นหา"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button class="geo-btn" id="geo-btn" title="ใช้ตำแหน่งปัจจุบัน (GPS)">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                </button>
+                <button class="unit-btn" id="unit-btn" title="สลับหน่วยอุณหภูมิ">°C</button>
+            </div>
+        </header>
+
+        <!-- Quick Favorites Bar -->
+        <div class="favorites-bar" id="fav-container">
+            <!-- Dynamic Favorite Tags Rendered via JS -->
+        </div>
+
+        <!-- Dashboard Grid -->
+        <main class="dashboard-grid" style="position: relative;">
+            
+            <!-- Loader Overlay -->
+            <div class="loader-overlay" id="loader-overlay">
+                <div class="spinner"></div>
+                <span style="font-weight: 500;">กำลังโหลดข้อมูลสภาพอากาศ...</span>
+            </div>
+
+            <!-- Left Column: Hero Weather + Stats + 24H Slider -->
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+                
+                <!-- Weather Hero Banner -->
+                <section class="glass-card weather-hero">
+                    <div class="location-info">
+                        <div>
+                            <h1 class="city-name" id="display-city">Phetchaburi</h1>
+                            <p class="country-date">
+                                <span id="display-country">Thailand</span> • <span id="display-date">กำลังโหลด...</span>
+                            </p>
+                        </div>
+                        <button class="fav-toggle-btn" id="fav-toggle-btn" title="บันทึกเมืองโปรด">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="weather-main-display">
+                        <div class="temp-large" id="display-temp">--°C</div>
+                        <div class="weather-condition-box">
+                            <i class="fa-solid fa-sun weather-icon-large" id="weather-icon"></i>
+                            <div class="condition-text" id="display-condition">กำลังโหลด...</div>
+                            <div class="temp-range" id="display-range">สูงสุด: -- | ต่ำสุด: --</div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fa-solid fa-temperature-three-quarters stat-icon"></i>
+                            <div>
+                                <span class="stat-val" id="stat-feels">--</span>
+                                <span class="stat-lbl" style="display: block;">Feels Like</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fa-solid fa-wind stat-icon" style="color: #38BDF8;"></i>
+                            <div>
+                                <span class="stat-val" id="stat-wind">--</span>
+                                <span class="stat-lbl" style="display: block;">Wind Speed</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fa-solid fa-droplet stat-icon" style="color: #60A5FA;"></i>
+                            <div>
+                                <span class="stat-val" id="stat-humidity">--</span>
+                                <span class="stat-lbl" style="display: block;">Humidity</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fa-solid fa-sun stat-icon" style="color: #F59E0B;"></i>
+                            <div>
+                                <span class="stat-val" id="stat-uv">--</span>
+                                <span class="stat-lbl" style="display: block;">UV Index</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fa-solid fa-eye stat-icon" style="color: #10B981;"></i>
+                            <div>
+                                <span class="stat-val">10 km</span>
+                                <span class="stat-lbl" style="display: block;">Visibility</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fa-solid fa-gauge-high stat-icon" style="color: #A855F7;"></i>
+                            <div>
+                                <span class="stat-val">1013 hPa</span>
+                                <span class="stat-lbl" style="display: block;">Pressure</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 24-Hour Forecast Section -->
+                <section class="glass-card">
+                    <h2 class="forecast-section-title">
+                        <i class="fa-solid fa-clock-rotate-left" style="color: var(--accent-cyan);"></i>
+                        พยากรณ์อากาศรายชั่วโมง (24 ชั่วโมงข้างหน้า)
+                    </h2>
+                    <div class="hourly-scroll" id="hourly-scroll">
+                        <!-- Dynamic Hourly Cards -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: 7-Day Forecast -->
+            <div>
+                <section class="glass-card">
+                    <h2 class="forecast-section-title">
+                        <i class="fa-solid fa-calendar-week" style="color: var(--accent-gold);"></i>
+                        พยากรณ์ล่วงหน้า 7 วัน
+                    </h2>
+                    <div class="daily-list" id="daily-list">
+                        <!-- Dynamic 7-Day Rows -->
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Weather JavaScript Logic -->
+    <script src="weather.js"></script>
+</body>
+</html>
