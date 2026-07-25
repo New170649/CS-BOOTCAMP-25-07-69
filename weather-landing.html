@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyPulse Weather AI | แอปพยากรณ์อากาศอัจฉริยะ แม่นยำระดับนาที</title>
+    <meta name="description" content="SkyPulse Weather AI แอปพลิเคชันพยากรณ์อากาศยุคใหม่ แม่นยำระดับนาที แจ้งเตือนฝนตก มรสุม ฝุ่น PM 2.5 และเรดาร์ 3D เรียลไทม์">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SkyPulse Stylesheet -->
+    <link rel="stylesheet" href="skypulse.css">
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cloud-bolt"></i>
+                </div>
+                <span class="logo-text">SkyPulse <span style="color: var(--accent-cyan);">AI</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">หน้าแรก</a></li>
+                <li><a href="#features" class="nav-link">จุดเด่นฟีเจอร์</a></li>
+                <li><a href="#live-trial" class="nav-link">ทดลองดูอากาศสด</a></li>
+                <li><a href="#showcase" class="nav-link">ตัวอย่างแอป</a></li>
+                <li><a href="#pricing" class="nav-link">แพ็กเกจราคา</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+            <div>
+                <a href="#download" class="btn btn-sky">
+                    <i class="fa-solid fa-download"></i> ดาวน์โหลดฟรี
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container hero-grid">
+            <div>
+                <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> SKYPULSE 3.0 NEXT-GEN AI METEOROLOGY</span>
+                <h1 class="hero-title">
+                    พยากรณ์อากาศสด <br>
+                    <span class="gradient-text">แม่นยำระดับนาที</span> <br>
+                    ด้วยพลัง AI
+                </h1>
+                <p class="hero-desc">
+                    ก้าวล้ำไปอีกขั้นกับแอปพลิเคชันสภาพอากาศอัจฉริยะ วิเคราะห์ฝนแปรปรวนรายนาที เตือนภัยมรสุม ฝุ่น PM 2.5 และแนะนำการเดินทางรายวันสำหรับคุณ
+                </p>
+
+                <div class="hero-badges-wrap" id="download">
+                    <a href="#" class="store-badge-btn">
+                        <i class="fa-brands fa-apple"></i>
+                        <div class="store-text">
+                            <span class="store-sub">Download on the</span>
+                            <span class="store-main">App Store</span>
+                        </div>
+                    </a>
+                    <a href="#" class="store-badge-btn">
+                        <i class="fa-brands fa-google-play"></i>
+                        <div class="store-text">
+                            <span class="store-sub">GET IT ON</span>
+                            <span class="store-main">Google Play</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 16px; font-size: 0.9rem; color: var(--text-muted);">
+                    <div><i class="fa-solid fa-star" style="color: var(--accent-gold);"></i> 4.9/5 จากผู้ใช้ 100,000+ คน</div>
+                    <div>•</div>
+                    <div><i class="fa-solid fa-shield-halved" style="color: var(--accent-emerald);"></i> ฟรี 100% ไม่มีโฆษณากวนใจ</div>
+                </div>
+            </div>
+
+            <!-- Live Weather Widget Preview Card -->
+            <div class="hero-widget-card" id="live-trial">
+                <div class="widget-header">
+                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-cyan);">
+                        <i class="fa-solid fa-satellite-dish"></i> LIVE WEATHER DEMO
+                    </span>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Open-Meteo Data</span>
+                </div>
+
+                <div class="widget-search">
+                    <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
+                    <input type="text" id="widget-city-input" placeholder="พิมพ์ชื่อเมืองทดสอบสด (เช่น Phetchaburi, Tokyo)..." value="Phetchaburi">
+                    <button id="widget-search-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="widget-main">
+                    <div>
+                        <h3 id="widget-city-name" style="font-size: 1.6rem; color: var(--text-white);">Phetchaburi</h3>
+                        <p id="widget-condition" style="font-size: 0.95rem; color: var(--text-body);">กำลังโหลด...</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <i class="fa-solid fa-sun" id="widget-icon" style="font-size: 2.8rem; color: var(--accent-gold);"></i>
+                    </div>
+                </div>
+
+                <div id="widget-temp" class="widget-temp">--°C</div>
+
+                <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-glass); font-size: 0.85rem;">
+                    <div><i class="fa-solid fa-wind" style="color: var(--accent-cyan);"></i> ความเร็วลม: <strong id="widget-wind" style="color: var(--text-white);">-- km/h</strong></div>
+                    <div><i class="fa-solid fa-droplet" style="color: var(--accent-cyan);"></i> ความชื้น: <strong id="widget-humidity" style="color: var(--text-white);">--%</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="section-padding" id="features" style="background: rgba(11, 19, 43, 0.4);">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <span class="section-tag"><i class="fa-solid fa-microchip"></i> POWERFUL AI FEATURES</span>
+                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">
+                    ตอบโจทย์ทุกสภาพอากาศ <br>
+                    <span style="color: var(--accent-cyan);">ด้วยนวัตกรรม AI Meteorology</span>
+                </h2>
+                <p>สัมผัสประสบการณ์ฟีเจอร์พรีเมียมที่ออกแบบมาเพื่อให้คุณเตรียมพร้อมรับมือทุกสภาพอากาศ</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-cloud-showers-water"></i>
+                    </div>
+                    <h3 class="feature-title">Minute Rain Prediction</h3>
+                    <p class="feature-desc">
+                        ระบบพยากรณ์ฝนตกแปรปรวนล่วงหน้ารายนาที แจ้งเตือนล่วงหน้า 15-30 นาที ก่อนฝนตกตรงจุดที่คุณอยู่
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.25); color: var(--accent-gold);">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h3 class="feature-title">Severe Climate AI Alert</h3>
+                    <p class="feature-desc">
+                        เตือนภัยพายุหมุน มรสุม น้ำท่วมฉับพลัน และดัชนีฝุ่น PM 2.5 ทาง Push Notification ทันทีตลอด 24 ชั่วโมง
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(99, 102, 241, 0.12); border-color: rgba(99, 102, 241, 0.25); color: var(--accent-aurora);">
+                        <i class="fa-solid fa-earth-asia"></i>
+                    </div>
+                    <h3 class="feature-title">Interactive 3D Weather Radar</h3>
+                    <p class="feature-desc">
+                        แผนที่เรดาร์สภาพอากาศแบบ 3D แสดงทิศทางลม กระแสเมฆ และการเคลื่อนตัวของฝนแบบ Real-Time HD
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.25); color: var(--accent-emerald);">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Outfit &amp; Travel Planner</h3>
+                    <p class="feature-desc">
+                        คำแนะนำการแต่งกายและการวางแผนกิจกรรมกลางแจ้งอัจฉริยะที่วิเคราะห์จากดัชนี UV และความชื้น
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Showcase Section -->
+    <section class="section-padding" id="showcase">
+        <div class="container">
+            <div class="showcase-box">
+                <div>
+                    <span class="section-tag"><i class="fa-solid fa-mobile-screen-button"></i> ELEGANT USER INTERFACE</span>
+                    <h2 style="font-size: 2.25rem; margin-bottom: 20px;">
+                        ออกแบบอย่างปราณีต <br>
+                        <span class="gradient-text">สวยงาม และใช้งานง่าย</span>
+                    </h2>
+                    <p style="margin-bottom: 24px; color: var(--text-body);">
+                        SkyPulse Weather AI มาพร้อมอินเทอร์เฟซสไตล์ Glassmorphism ที่ปรับเปลี่ยนการแสดงผลตามสภาพอากาศจริงโดยอัตโนมัติ ให้คุณเข้าถึงข้อมูลสำคัญได้ภายในพริบตา
+                    </p>
+
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px;">
+                        <li style="display: flex; align-items: center; gap: 10px; color: var(--text-white);">
+                            <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan);"></i> โหมดธีมปรับสีตามบรรยากาศ (Sunny, Night, Rain, Thunder)
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: var(--text-white);">
+                            <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan);"></i> Widget หน้าจอหลักสำหรับ iOS &amp; Android
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: var(--text-white);">
+                            <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan);"></i> บันทึกสถานที่โปรดไม่จำกัดเมืองทั่วโลก
+                        </li>
+                    </ul>
+
+                    <a href="#download" class="btn btn-aurora">
+                        <i class="fa-solid fa-rocket"></i> ทดลองใช้งานฟรี
+                    </a>
+                </div>
+
+                <!-- Phone App UI Mockup -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
+                            <span>Phetchaburi, TH</span>
+                            <span>15:30</span>
+                        </div>
+
+                        <div style="text-align: center; margin: 30px 0;">
+                            <i class="fa-solid fa-cloud-sun-rain" style="font-size: 3.5rem; color: #F59E0B;"></i>
+                            <h3 style="font-size: 3rem; margin-top: 8px;">31°C</h3>
+                            <p style="font-size: 0.9rem; opacity: 0.9;">ฝนซู่เล็กน้อย (Light Rain)</p>
+                        </div>
+
+                        <div style="background: rgba(255,255,255,0.15); padding: 12px; border-radius: 16px; font-size: 0.8rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                <span><i class="fa-solid fa-umbrella"></i> โอกาสฝนตก</span>
+                                <strong>80%</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span><i class="fa-solid fa-wind"></i> ความเร็วลม</span>
+                                <strong>12 km/h</strong>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto; padding-top: 10px; font-size: 0.75rem; text-align: center; opacity: 0.8;">
+                            SkyPulse AI Protection Enabled • 24/7 Active
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section-padding" id="pricing" style="background: rgba(11, 19, 43, 0.4);">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <span class="section-tag"><i class="fa-solid fa-tags"></i> SIMPLE PRICING</span>
+                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">
+                    เลือกแพ็กเกจที่เหมาะสำหรับคุณ
+                </h2>
+                <p>เริ่มต้นใช้งานฟรี หรืออัปเกรดเพื่อปลดล็อกฟีเจอร์ AI ระดับมืออาชีพ</p>
+
+                <!-- Pricing Billing Toggle -->
+                <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 24px;">
+                    <span>ชำระรายเดือน</span>
+                    <label style="position: relative; display: inline-block; width: 50px; height: 26px;">
+                        <input type="checkbox" id="billing-toggle" style="opacity: 0; width: 0; height: 0;">
+                        <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--accent-sky); border-radius: 34px; transition: .4s;"></span>
+                    </label>
+                    <span>ชำระรายปี <span style="color: var(--accent-gold); font-size: 0.8rem; font-weight: 700;">(ประหยัด 25%)</span></span>
+                </div>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <h3 style="font-size: 1.5rem;">Free Starter</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">เหมาะสำหรับการใช้งานพยากรณ์อากาศทั่วไปประจำวัน</p>
+                    <div class="pricing-price">฿0 <span style="font-size: 1rem; color: var(--text-muted);">/ ตลอดชีพ</span></div>
+
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 24px 0;">
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-emerald);"></i> พยากรณ์อากาศรายชั่วโมง &amp; 7 วัน</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-emerald);"></i> ตรวจวัดค่าความชื้น ลม และ UV</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-emerald);"></i> บันทึกเมืองโปรดได้ 3 เมือง</li>
+                    </ul>
+
+                    <a href="#download" class="btn btn-outline" style="width: 100%;">ใช้งานเวอร์ชันฟรี</a>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card popular">
+                    <span class="popular-tag">แนะนำสูงสุด</span>
+                    <h3 style="font-size: 1.5rem;">SkyPulse Pro AI</h3>
+                    <p style="font-size: 0.9rem; color: var(--accent-cyan); margin-top: 4px;">ปลดล็อกขีดสุดของการเตือนภัยฝนและเรดาร์ 3D</p>
+                    <div class="pricing-price"><span id="price-pro">฿129</span> <span style="font-size: 1rem; color: var(--text-muted);">/ เดือน</span></div>
+
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 24px 0; color: var(--text-white);">
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> ทุกฟีเจอร์ในแพ็กเกจ Free</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> แจ้งเตือนฝนตกแปรปรวนระดับนาที (Minute Rain)</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> แผนที่เรดาร์มรสุม 3D แบบ Live HD</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> แจ้งเตือนฝุ่น PM 2.5 และมรสุม Push Alert</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> ไร้โฆษณา + บันทึกเมืองไม่จำกัด</li>
+                    </ul>
+
+                    <a href="#download" class="btn btn-sky" style="width: 100%;">ทดลองใช้งาน Pro ฟรี 7 วัน</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" id="faq">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <span class="section-tag"><i class="fa-solid fa-circle-question"></i> FAQ</span>
+                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">
+                    คำถามที่พบบ่อย
+                </h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-header">
+                        <span>1. SkyPulse Weather AI แตกต่างจากแอปพยากรณ์อากาศทั่วไปอย่างไร?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>SkyPulse ใช้โมเดลปัญญาประดิษฐ์ (AI Meteorology) วิเคราะห์ข้อมูลเรดาร์และดาวเทียมสภาพอากาศแบบเรียลไทม์ ทำให้สามารถพยากรณ์ฝนตกแปรปรวนล่วงหน้าระดับนาทีได้อย่างแม่นยำตรงจุดตำแหน่งที่คุณอยู่</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span>2. สามารถใช้งานแอปพลิเคชันแบบฟรีได้ตลอดไปหรือไม่?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>สามารถใช้งานฟรีได้ตลอดไปครับ! แพ็กเกจ Starter ให้บริการข้อมูลอุณหภูมิ ความชื้น ลม และพยากรณ์ 7 วันครบถ้วน โดยไม่บังคับอัปเกรด</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span>3. แอปพลิเคชันรองรับระบบปฏิบัติการใดบ้าง?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>รองรับทั้ง iOS (iPhone/iPad/Apple Watch) และ Android รวมถึงเปิดใช้งานผ่าน Web Browser ได้ทุกอุปกรณ์ครับ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="brand-logo" style="margin-bottom: 16px;">
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-cloud-bolt"></i>
+                        </div>
+                        <span class="logo-text">SkyPulse <span style="color: var(--accent-cyan);">AI</span></span>
+                    </a>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 340px;">
+                        ผู้นำนวัตกรรมเทคโนโลยีพยากรณ์อากาศอัจฉริยะด้วย AI เพื่อชีวิตที่ปลอดภัยและเตรียมพร้อมทุกสถานการณ์
+                    </p>
+                </div>
+
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 16px;">ลิงก์รวดเร็ว</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">หน้าแรก</a></li>
+                        <li><a href="#features">จุดเด่นฟีเจอร์</a></li>
+                        <li><a href="#showcase">ตัวอย่างแอป</a></li>
+                        <li><a href="#pricing">ราคาแพ็กเกจ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 16px;">ผลิตภัณฑ์</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">SkyPulse for iOS</a></li>
+                        <li><a href="#">SkyPulse for Android</a></li>
+                        <li><a href="#">SkyPulse Weather API</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 16px;">ดาวน์โหลดแอป</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">สัมผัสความแม่นยำของสภาพอากาศยุคใหม่วันนี้</p>
+                    <a href="#download" class="btn btn-sky" style="padding: 10px 20px; font-size: 0.85rem;">
+                        <i class="fa-solid fa-download"></i> ดาวน์โหลดฟรี
+                    </a>
+                </div>
+            </div>
+
+            <div style="text-align: center; padding-top: 30px; border-top: 1px solid var(--border-glass); font-size: 0.85rem; color: var(--text-muted);">
+                &copy; 2026 SkyPulse Weather AI Technologies. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Script -->
+    <script src="skypulse.js"></script>
+</body>
+</html>
