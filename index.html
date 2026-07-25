@@ -1,16 +1,576 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UFT=8">
-    <meta name="viewport" content="width=device-width, initial=scale=1.0">
-    <title>Document</title>
-</head0>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS BOOTCAMP 2026 | สาขาวิชาวิทยาการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี (PBRU)</title>
+    <meta name="description" content="โครงการ CS Bootcamp 2026 โดยสาขาวิชาวิทยาการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี (PBRU) อบรมการเขียนโปรแกรม พัฒนาเว็บ Data & AI ฟรี!">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <h1>Hello</h1>>
-    <h2>1234</h2>>
 
+    <!-- Header & Navigation Bar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-badge">&lt;/&gt;</div>
+                <div class="logo-text">
+                    <span class="logo-title">PBRU CS BOOTCAMP</span>
+                    <span class="logo-sub">คณะเทคโนโลยีสารสนเทศ มรภ.เพชรบุรี</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero" class="nav-link active">หน้าแรก</a></li>
+                <li><a href="#about" class="nav-link">เกี่ยวกับเรา</a></li>
+                <li><a href="#tracks" class="nav-link">หลักสูตร</a></li>
+                <li><a href="#timeline" class="nav-link">กำหนดการ</a></li>
+                <li><a href="#mentors" class="nav-link">ทีมวิทยากร</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <a href="#register" class="btn btn-primary btn-register-trigger">
+                    <i class="fa-solid fa-code-commit"></i> ลงทะเบียนสมัครฟรี
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <p>Branch develop</p>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-pulse"></span>
+                    CS BOOTCAMP 2026 • IT PBRU
+                </div>
+                <h1 class="hero-title">
+                    ก้าวสู่การเป็น <br>
+                    <span class="gradient-text">Software Developer</span> <br>
+                    ระดับมืออาชีพ
+                </h1>
+                <p class="hero-desc">
+                    โครงการค่ายฝึกอบรมเชิงปฏิบัติการเข้มข้น โดยสาขาวิชาวิทยาการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี (PBRU) เสริมสร้างทักษะ Coding, Web Full-Stack, Data Science และ AI สำหรับนักพัฒนาแห่งอนาคต
+                </p>
+                <div class="hero-actions">
+                    <a href="#register" class="btn btn-primary btn-register-trigger">
+                        <i class="fa-solid fa-user-plus"></i> สมัครเข้าร่วมโครงการฟรี
+                    </a>
+                    <a href="#tracks" class="btn btn-outline">
+                        <i class="fa-solid fa-compass"></i> สำรวจหลักสูตร
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" style="color: var(--accent-blue);">100% FREE</span>
+                        <span class="stat-label">ไม่มีค่าใช้จ่ายตลอดโครงการ</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" style="color: var(--accent-gold);">4 WEEKS</span>
+                        <span class="stat-label">อบรมปฏิบัติการเข้มข้น</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" style="color: var(--accent-emerald);">3 TRACKS</span>
+                        <span class="stat-label">สายงานการเรียนรู้</span>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Terminal Interactive Widget -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <div class="terminal-tabs">
+                        <button class="terminal-tab active" data-lang="cpp">main.cpp</button>
+                        <button class="terminal-tab" data-lang="python">ai_model.py</button>
+                        <button class="terminal-tab" data-lang="js">app.js</button>
+                    </div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code id="code-display"><span class="code-comment">// PBRU CS Bootcamp - C++ Fundamentals</span>
+<span class="code-keyword">#include</span> &lt;iostream&gt;
+<span class="code-keyword">using namespace</span> std;
+
+<span class="code-keyword">int</span> <span class="code-function">main</span>() {
+    <span class="code-class">string</span> student = <span class="code-string">"PBRU CS Student"</span>;
+    cout &lt;&lt; <span class="code-string">"Welcome to PBRU CS Bootcamp 2026!"</span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="code-string">"Future Software Engineer: "</span> &lt;&lt; student &lt;&lt; endl;
+    <span class="code-keyword">return</span> <span class="code-string">0</span>;
+}</code></pre>
+                </div>
+                <div class="terminal-footer">
+                    <span><i class="fa-solid fa-terminal"></i> Status: Ready for Bootcamp</span>
+                    <span>PBRU IT CS &copy; 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about" style="background: rgba(13, 21, 45, 0.4);">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <span class="section-tag"><i class="fa-solid fa-star"></i> ทำไมต้องเรียนกับเรา</span>
+                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">
+                    ยกระดับทักษะไอทีของคุณกับ <br>
+                    <span style="color: var(--accent-blue);">วิทยาการคอมพิวเตอร์ มรภ.เพชรบุรี</span>
+                </h2>
+                <p style="color: var(--text-body);">
+                    สาขาวิชาวิทยาการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศ มุ่งเน้นการผลิตบัณฑิตนักปฏิบัติที่มีทักษะตรงตามความต้องการของอุตสาหกรรมซอฟต์แวร์ยุคใหม่
+                </p>
+            </div>
+
+            <div class="card-grid">
+                <div class="feature-card">
+                    <div class="card-icon blue">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="card-title">Hands-on Coding Labs</h3>
+                    <p class="card-desc">
+                        เน้นการลงมือเขียนโค้ดจริง 80% พร้อมสร้างโปรเจกต์ใช้งานได้จริงสำหรับสะสมใน Portfolio
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon gold">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="card-title">คณาจารย์ &amp; Mentors มืออาชีพ</h3>
+                    <p class="card-desc">
+                        ดูแลและให้คำแนะนำอย่างใกล้ชิดโดยอาจารย์ประสาขาวิชาและวิทยากรผู้เชี่ยวชาญจากสายงานเทคโนโลยี
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <h3 class="card-title">Modern Tech Stack</h3>
+                    <p class="card-desc">
+                        เรียนรู้เทคโนโลยีล่าสุด ทั้ง Full-Stack Web Development, Data Science, Cloud และ AI Tools
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon blue">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="card-title">PBRU IT Certificate</h3>
+                    <p class="card-desc">
+                        ได้รับวุฒิบัตรรับรองการผ่านการอบรมจากคณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Tracks Section -->
+    <section class="section-padding" id="tracks">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 36px;">
+                <span class="section-tag"><i class="fa-solid fa-layer-group"></i> หลักสูตรการเรียนรู้</span>
+                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">
+                    เลือก <span style="color: var(--accent-blue);">Track การเรียนรู้</span> ที่ใช่สำหรับคุณ
+                </h2>
+                <p>เลือกเรียนตามความสนใจเพื่อมุ่งสู่สายงานในฝันของคุณ</p>
+            </div>
+
+            <!-- Track Tabs -->
+            <div class="tracks-nav">
+                <button class="track-btn active" data-track="web">
+                    <i class="fa-solid fa-code"></i> Software &amp; Web Dev
+                </button>
+                <button class="track-btn" data-track="data">
+                    <i class="fa-solid fa-brain"></i> Data Science &amp; AI
+                </button>
+                <button class="track-btn" data-track="cyber">
+                    <i class="fa-solid fa-shield-halved"></i> Cybersecurity &amp; Cloud
+                </button>
+            </div>
+
+            <!-- Track Content 1: Web -->
+            <div class="track-content active" id="track-web">
+                <div class="track-box">
+                    <div>
+                        <span style="color: var(--accent-blue); font-weight: 700; font-family: var(--font-code);">TRACK 01</span>
+                        <h3 style="font-size: 1.8rem; margin: 8px 0 16px;">Software Engineering &amp; Full-Stack Web</h3>
+                        <p style="color: var(--text-body);">
+                            เจาะลึกโครงสร้างวิทยาการคอมพิวเตอร์ การออกแบบสถาปัตยกรรมซอฟต์แวร์ และการพัฒนาเว็บแอปพลิเคชันสมัยใหม่ด้วย HTML5, CSS3, JavaScript ES6+ และ Node.js
+                        </p>
+                        <ul class="track-features">
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Computer Science Logic &amp; Algorithms</li>
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Modern Web UI/UX Design System</li>
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Frontend &amp; Backend API Integration</li>
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Git &amp; GitHub Version Control Workflow</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(0, 180, 216, 0.08); border: 1px solid rgba(0, 180, 216, 0.2); border-radius: var(--radius-md); padding: 24px; display: flex; flex-direction: column; justify-content: center;">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 12px;"><i class="fa-solid fa-briefcase"></i> สายงานที่รองรับหลังจบแคมป์:</h4>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
+                            <li>• Frontend Developer / Web Developer</li>
+                            <li>• Junior Full-Stack Developer</li>
+                            <li>• Software Tester / QA Specialist</li>
+                        </ul>
+                        <div style="margin-top: 24px;">
+                            <a href="#register" class="btn btn-primary btn-register-trigger" style="width: 100%;">
+                                สมัคร Track นี้
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track Content 2: Data AI -->
+            <div class="track-content" id="track-data">
+                <div class="track-box">
+                    <div>
+                        <span style="color: var(--accent-gold); font-weight: 700; font-family: var(--font-code);">TRACK 02</span>
+                        <h3 style="font-size: 1.8rem; margin: 8px 0 16px;">Data Science &amp; AI Innovations</h3>
+                        <p style="color: var(--text-body);">
+                            ปูพื้นฐานภาษา Python สำหรับงานวิเคราะห์ข้อมูล การจัดการข้อมูลขนาดใหญ่ (Big Data) และการนำ Generative AI มาประยุกต์ใช้ในการแก้ปัญหาทางธุรกิจ
+                        </p>
+                        <ul class="track-features">
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Python Programming for Analytics</li>
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Data Visualization with Power BI &amp; Python</li>
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Machine Learning Fundamentals</li>
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Generative AI &amp; Prompt Engineering</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(255, 183, 3, 0.08); border: 1px solid rgba(255, 183, 3, 0.2); border-radius: var(--radius-md); padding: 24px; display: flex; flex-direction: column; justify-content: center;">
+                        <h4 style="color: var(--accent-gold); margin-bottom: 12px;"><i class="fa-solid fa-briefcase"></i> สายงานที่รองรับหลังจบแคมป์:</h4>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
+                            <li>• Junior Data Analyst / Data Engineer</li>
+                            <li>• AI Application Specialist</li>
+                            <li>• Business Intelligence Analyst</li>
+                        </ul>
+                        <div style="margin-top: 24px;">
+                            <a href="#register" class="btn btn-gold btn-register-trigger" style="width: 100%;">
+                                สมัคร Track นี้
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track Content 3: Cyber -->
+            <div class="track-content" id="track-cyber">
+                <div class="track-box">
+                    <div>
+                        <span style="color: var(--accent-emerald); font-weight: 700; font-family: var(--font-code);">TRACK 03</span>
+                        <h3 style="font-size: 1.8rem; margin: 8px 0 16px;">Cybersecurity &amp; Cloud Infrastructure</h3>
+                        <p style="color: var(--text-body);">
+                            เรียนรู้ระบบความปลอดภัยไซเบอร์ เครือข่ายคอมพิวเตอร์ และการบริหารจัดการระบบบน Cloud เพื่อสร้างสถาปัตยกรรมไอทีที่มั่นคงปลอดภัย
+                        </p>
+                        <ul class="track-features">
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Network &amp; System Security Fundamentals</li>
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Cloud Computing &amp; Containerization (Docker)</li>
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> Ethical Hacking &amp; Threat Defense</li>
+                            <li class="track-feature-item"><i class="fa-solid fa-check"></i> IT Infrastructure Management</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(6, 214, 160, 0.08); border: 1px solid rgba(6, 214, 160, 0.2); border-radius: var(--radius-md); padding: 24px; display: flex; flex-direction: column; justify-content: center;">
+                        <h4 style="color: var(--accent-emerald); margin-bottom: 12px;"><i class="fa-solid fa-briefcase"></i> สายงานที่รองรับหลังจบแคมป์:</h4>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
+                            <li>• Cloud Support Associate</li>
+                            <li>• Network &amp; Security Administrator</li>
+                            <li>• System Administrator</li>
+                        </ul>
+                        <div style="margin-top: 24px;">
+                            <a href="#register" class="btn btn-primary btn-register-trigger" style="width: 100%;">
+                                สมัคร Track นี้
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section-padding" id="timeline" style="background: rgba(13, 21, 45, 0.4);">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <span class="section-tag"><i class="fa-solid fa-calendar-days"></i> กำหนดการการเรียนรู้</span>
+                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">
+                    แผนการเดินทาง 4 สัปดาห์สู่ <span style="color: var(--accent-blue);">Developer มืออาชีพ</span>
+                </h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-week">WEEK 01 • ORIENTATION &amp; FUNDAMENTALS</div>
+                        <h3 style="font-size: 1.15rem; margin-bottom: 8px;">ปฐมนิเทศ &amp; ปูพื้นฐานการคิดแบบอัลกอริทึม</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-body);">
+                            ทำความรู้จักสาขาวิชา CS PBRU, การติดตั้ง Tools การเขียนโค้ด (VS Code, Git) และเรียนรู้ตรรกะการโปรแกรม
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: var(--accent-gold);"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-week" style="color: var(--accent-gold);">WEEK 02 • CORE INTENSIVE LABS</div>
+                        <h3 style="font-size: 1.15rem; margin-bottom: 8px;">เวิร์กชอปปฏิบัติการเฉพาะทาง</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-body);">
+                            แยกตาม Track ที่เลือก (Software Web, Data Science &amp; AI, หรือ Security Cloud) เรียนรู้ผ่าน Lab โจทย์จริง
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-week">WEEK 03 • CAPSTONE PROJECT BUILDING</div>
+                        <h3 style="font-size: 1.15rem; margin-bottom: 8px;">พัฒนาโครงงานโปรเจกต์จริง</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-body);">
+                            จับกลุ่มสร้างสรรค์ผลงานนวัตกรรมซอฟต์แวร์ โดยมีอาจารย์ประจำสาขา CS คอยเป็น Mentor ให้คำปรึกษา
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: var(--accent-gold);"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-week" style="color: var(--accent-gold);">WEEK 04 • DEMO DAY &amp; GRADUATION</div>
+                        <h3 style="font-size: 1.15rem; margin-bottom: 8px;">นำเสนอผลงาน &amp; รับวุฒิบัตร</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-body);">
+                            นำเสนอผลงานบนเวที Demo Day แลกเปลี่ยนความคิดเห็น และรับวุฒิบัตรรับรองจากคณะเทคโนโลยีสารสนเทศ
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors Section -->
+    <section class="section-padding" id="mentors">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <span class="section-tag"><i class="fa-solid fa-users"></i> ทีมวิทยากรและอาจารย์ผู้สอน</span>
+                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">
+                    เรียนรู้จากอาจารย์และผู้เชี่ยวชาญ <br>
+                    <span style="color: var(--accent-blue);">สาขาวิชาวิทยาการคอมพิวเตอร์ PBRU</span>
+                </h2>
+            </div>
+
+            <div class="mentors-grid">
+                <div class="mentor-card">
+                    <div class="mentor-avatar">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </div>
+                    <h3 class="mentor-name">อาจารย์ประจำสาขา CS</h3>
+                    <p class="mentor-role">Software Engineering Expert</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">
+                        เชี่ยวชาญด้านการพัฒนาซอฟต์แวร์และอัลกอริทึม
+                    </p>
+                </div>
+
+                <div class="mentor-card">
+                    <div class="mentor-avatar" style="border-color: var(--accent-gold); color: var(--accent-gold);">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="mentor-name">คณาจารย์คณะเทคโนโลยีสารสนเทศ</h3>
+                    <p class="mentor-role" style="color: var(--accent-gold);">Data &amp; AI Specialist</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">
+                        ผู้เชี่ยวชาญด้านการวิเคราะห์ข้อมูลและนวัตกรรม AI
+                    </p>
+                </div>
+
+                <div class="mentor-card">
+                    <div class="mentor-avatar">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+                    <h3 class="mentor-name">วิทยากรพิเศษอุตสาหกรรม</h3>
+                    <p class="mentor-role">Cloud &amp; Security Mentor</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">
+                        ประสบการณ์ตรงจากการดูแลระบบเครือข่ายองค์กร
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" id="faq" style="background: rgba(13, 21, 45, 0.4);">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <span class="section-tag"><i class="fa-solid fa-circle-question"></i> FAQ</span>
+                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">
+                    คำถามที่พบบ่อย (Frequently Asked Questions)
+                </h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-header">
+                        <span>1. ผู้ที่ไม่มีพื้นฐานการเขียนโปรแกรมเลย สามารถเข้าร่วมได้หรือไม่?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>สามารถเข้าร่วมได้ครับ! โครงการ CS Bootcamp ออกแบบการสอนตั้งแต่ปูพื้นฐานการคิดแบบอัลกอริทึม การติดตั้งเครื่องมือ ตลอดจนมีอาจารย์และรุ่นพี่คอยให้คำแนะนำช่วยเหลืออย่างใกล้ชิด</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span>2. การเข้าร่วมโครงการมีค่าใช้จ่ายหรือไม่?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>โครงการนี้จัดขึ้นฟรี 100% โดยสนับสนุนโดยสาขาวิชาวิทยาการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี ไม่มีค่าใช้จ่ายใดๆ ตลอดโครงการ</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span>3. รูปแบบการจัดกิจกรรมเป็นการเรียนแบบใด?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>เป็นรูปแบบ Hybrid ทั้งการอบรมปฏิบัติการในห้องปฏิบัติการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศ มรภ.เพชรบุรี และการเรียนรู้ผ่านระบบออนไลน์สำหรับฝึกปฏิบัติลุยโจทย์</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span>4. ผู้ผ่านการอบรมจะได้รับวุฒิบัตรหรือไม่?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>ผู้ที่เข้าร่วมกิจกรรมและส่งโครงงาน Capstone Project ครบถ้วนตามเงื่อนไข จะได้รับวุฒิบัตรรับรองจากคณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Form Registration -->
+    <div class="modal-overlay" id="register-modal">
+        <div class="modal-box">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div style="text-align: center; margin-bottom: 24px;">
+                <span style="color: var(--accent-blue); font-weight: 700; font-family: var(--font-code); font-size: 0.9rem;">PBRU CS BOOTCAMP 2026</span>
+                <h3 style="font-size: 1.5rem; color: var(--text-white); margin-top: 4px;">แบบฟอร์มลงทะเบียนเข้าร่วมฟรี</h3>
+            </div>
+
+            <form id="register-form">
+                <div class="form-group">
+                    <label class="form-label" for="fullname">ชื่อ - นามสกุล *</label>
+                    <input type="text" id="fullname" class="form-input" placeholder="เช่น นายสมชาย ใจดี" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">อีเมล *</label>
+                    <input type="email" id="email" class="form-input" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="phone">เบอร์โทรศัพท์ติดต่อ *</label>
+                    <input type="tel" id="phone" class="form-input" placeholder="08X-XXX-XXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="selected-track">เลือก Track ที่สนใจ *</label>
+                    <select id="selected-track" class="form-select" required>
+                        <option value="Software & Web Dev">Software Engineering & Full-Stack Web</option>
+                        <option value="Data Science & AI">Data Science & AI Innovations</option>
+                        <option value="Cybersecurity & Cloud">Cybersecurity & Cloud Infrastructure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="status-user">สถานะปัจจุบัน</label>
+                    <select id="status-user" class="form-select">
+                        <option value="นร./นศ. PBRU">นักศึกษา มรภ.เพชรบุรี (PBRU)</option>
+                        <option value="นักเรียน ม.ปลาย/ปวช.">นักเรียน ม.ปลาย / ปวช.</option>
+                        <option value="บุคคลทั่วไป">บุคคลทั่วไป / ศิษย์เก่า</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+                    <i class="fa-solid fa-paper-plane"></i> ยืนยันการสมัครเข้าร่วมฟรี
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="success-toast">
+        <i class="fa-solid fa-circle-check" style="color: var(--accent-emerald); font-size: 1.5rem;"></i>
+        <div>
+            <strong style="display: block;">ลงทะเบียนสำเร็จ!</strong>
+            <span style="font-size: 0.85rem; color: var(--text-body);">ทีมงานสาขาวิชา CS จะส่งข้อมูลยืนยันไปยังอีเมลของคุณ</span>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="brand-logo" style="margin-bottom: 16px;">
+                        <div class="logo-badge">&lt;/&gt;</div>
+                        <div class="logo-text">
+                            <span class="logo-title">PBRU CS BOOTCAMP</span>
+                            <span class="logo-sub">คณะเทคโนโลยีสารสนเทศ มรภ.เพชรบุรี</span>
+                        </div>
+                    </a>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 340px;">
+                        สาขาวิชาวิทยาการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี 38 หมู่ 8 ต.นาวุ้ง อ.เมือง จ.เพชรบุรี 76000
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title">ลิงก์รวดเร็ว</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">หน้าแรก</a></li>
+                        <li><a href="#about">เกี่ยวกับเรา</a></li>
+                        <li><a href="#tracks">หลักสูตร</a></li>
+                        <li><a href="#timeline">กำหนดการ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title">ช่องทางการติดต่อ</h4>
+                    <ul class="footer-links">
+                        <li><a href="http://it.pbru.ac.th" target="_blank"><i class="fa-solid fa-globe"></i> it.pbru.ac.th</a></li>
+                        <li><a href="http://www.pbru.ac.th" target="_blank"><i class="fa-solid fa-university"></i> pbru.ac.th</a></li>
+                        <li><a href="mailto:itpbru@mail.pbru.ac.th"><i class="fa-solid fa-envelope"></i> itpbru@mail.pbru.ac.th</a></li>
+                        <li><a href="tel:032708617"><i class="fa-solid fa-phone"></i> 032-708617</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title">คณะเทคโนโลยีสารสนเทศ</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                        มุ่งมั่นสร้างสรรค์บัณฑิตด้านเทคโนโลยีและคอมพิวเตอร์ ตอบสนองตลาดแรงงานยุคดิจิทัล
+                    </p>
+                    <a href="#register" class="btn btn-outline btn-register-trigger" style="padding: 10px 20px; font-size: 0.85rem;">
+                        <i class="fa-solid fa-user-plus"></i> สมัครเรียน
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Computer Science Department, Faculty of Information Technology, Phetchaburi Rajabhat University (PBRU). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
